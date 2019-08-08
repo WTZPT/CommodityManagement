@@ -1,0 +1,592 @@
+.h1-css {
+    font-size: 3.5em;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: 1px 2px 1px rgba(12, 12, 12, 0.37);
+    margin: 3vw 1vw;
+    font-family: 'Magra', sans-serif;
+}
+
+body {
+    background: url(../img/p_big2.jpg) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-size: 100%;
+    font-family: 'Magra', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/*-- content --*/
+
+input.input-field {
+    width: 100%;
+    color: #000;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 15px;
+    box-sizing: border-box;
+    border: none;
+    border: none;
+    margin-bottom: 1rem;
+    border:1px solid #bbb;
+}
+
+
+
+label {
+    margin-bottom: .8rem;
+    display: block;
+    letter-spacing: 1px;
+}
+.container-agille {
+    text-align: center;
+    margin: 6em 0 5em;
+}
+
+
+.formBox {
+    width: 460px;
+    max-width: 100%;
+    height: 442px;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.formBox .box {
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 60px 0px 40px 0;
+    position: absolute;
+    width: 100%;
+    /* height: 100%; */
+    box-shadow: 0px 2px 11px -2px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s cubic-bezier(0.35, 0.33, 0.75, 0.9);
+}
+
+.formBox h3 {
+    color: #25b4ed;
+    padding: 0px 45px;
+    font-size: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    font-family: 'Magra', sans-serif;
+}
+
+.formBox p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: #696969;
+}
+
+.formBox form {
+    display: block;
+    padding: 0px 50px;
+    position: relative;
+}
+
+.formBox .f_row {
+    position: relative;
+    margin-bottom: 30px;
+    height: 50px;
+}
+
+.formBox .f_row.shake {
+    animation: shake 0.4s linear;
+}
+
+
+.formBox .regTag {
+    font-size: 22px;
+    text-align: center;
+    position: absolute;
+    right: 4%;
+    top: 5%;
+    z-index: 2;
+    color: #a58d79;
+}
+
+.formBox .regTag svg {
+    /* fill: #000; */
+    width: 38px;
+    height: 38px;
+}
+
+.formBox .registerBox {
+    border-radius: 8px;
+    background-color: #fff;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    backface-visibility: visible;
+    z-index: 1;
+}
+
+
+
+.formBox .registerBox h3 {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translateX(-20px);
+}
+
+.formBox .registerBox .form>div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translateX(20px);
+}
+
+.formBox .registerBox .form>div:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.formBox .registerBox .form>div:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.formBox .registerBox .form>div:nth-child(3) {
+    transition-delay: 0.25s;
+}
+
+.formBox .registerBox .btn-large {
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translateX(20px);
+    transition-delay: 0.3s;
+}
+
+.formBox .forgetbox {
+    background-color: #25b4ed;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0px, 9px) scale(1.03);
+}
+
+.formBox .forgetbox .back {
+    position: absolute;
+    top: 13px;
+    left: 26px;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    animation: back 0.8s linear;
+    animation-iteration-count: infinite;
+}
+
+.formBox .forgetbox .back svg {
+    /* fill: #fff; */
+    width: 20px;
+    height: 20px;
+}
+
+.formBox .forgetbox .f_row label {
+    color: #fff;
+}
+.formBox .forgetbox .f_row input {
+    color: #fff;
+    background: #333;
+    border: none;
+}
+.formBox .forgetbox .f_row u {
+    background-color: #7DC6DC;
+}
+
+.formBox .forgetbox .f_row u:before {
+    background-color: #fff;
+}
+
+.formBox .forgetbox .btn {
+    /* border-color: #7DC6DC; */
+    color: #25b4ed;
+    background: #fff;
+}
+
+.formBox .forgetbox h3 {
+    color: #fff;
+    border-left-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translate(-20px, 0px);
+}
+
+.formBox .forgetbox .div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translate(0px, 20px);
+    transition-delay: 0.15s;
+}
+
+.formBox .forgetbox p {
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translate(0px, 20px);
+    transition-delay: 0.2s;
+}
+
+.formBox .forgetbox .btn {
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.48, 0.55, 0.69, 0.9);
+    transform: translate(0px, 20px);
+    transition-delay: 0.25s;
+}
+
+.formBox.level-login .boxShaddow {
+    opacity: 0.7;
+    transform-origin: center top;
+    transform: translate(0px, -9px) scale(0.97);
+}
+
+.formBox.level-reg .boxShaddow {
+    opacity: 0.7;
+    transform-origin: center top;
+    transform: translate(0px, -18px) scale(0.94);
+}
+
+.formBox.level-reg .loginBox {
+    opacity: 0.7;
+    transform-origin: center top;
+    transform: translate(0px, -9px) scale(0.97);
+}
+
+.formBox.level-reg .registerBox {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.formBox.level-reg .reg_bg {
+    animation: regMask 0.3s cubic-bezier(0.48, 0.55, 0.73, 0.78);
+    animation-fill-mode: forwards;
+}
+
+.formBox.level-reg .form>div,
+.formBox.level-reg .btn-large,
+.formBox.level-reg h3 {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+.formBox.level-reg-revers .regTag {
+    animation: regTagR 0.3s cubic-bezier(0.48, 0.55, 0.73, 0.78), regTag2R 0.3s cubic-bezier(0.48, 0.55, 0.73, 0.78);
+}
+
+.formBox.level-reg-revers .reg_bg {
+    animation: regMaskR 0.3s cubic-bezier(0.48, 0.55, 0.73, 0.78);
+}
+
+.formBox.level-forget .boxShaddow {
+    opacity: 0.7;
+    transform-origin: center top;
+    transform: translate(0px, -18px) scale(0.94);
+}
+
+.formBox.level-forget .loginBox {
+    opacity: 0.7;
+    transform-origin: center top;
+    transform: translate(0px, -9px) scale(0.97);
+}
+
+.formBox.level-forget .forgetbox {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.formBox.level-forget .forgetbox p,
+.formBox.level-forget .forgetbox form>div,
+.formBox.level-forget .forgetbox .btn,
+.formBox.level-forget .forgetbox h3 {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+@keyframes back {
+    0% {
+        transform: translateX(0px);
+    }
+    70% {
+        transform: translateX(-13px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes regMask {
+    0% {
+        transform: translate(0px, 0px) scale(0);
+    }
+    50% {
+        transform: translate(100px, 100px) scale(0.5);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+@keyframes regMaskR {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+        transform: translate(150px, -150px) scale(0.5);
+    }
+    100% {
+        transform: translate(0px, 0px) scale(0);
+    }
+}
+
+
+
+@keyframes shake {
+    from,
+    to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.submit-w3 {
+    transition: all 0.6s ease;
+    background-color: #25b4ed;
+    border: none;
+    cursor: pointer;
+    font-family: 'Magra', sans-serif;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 18px;
+    box-shadow: 0px 3px 9px 1px rgba(0, 0, 0, 0.25);
+    margin-top: 1em;
+}
+.f_link {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.f_link2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.f_link a {
+    text-decoration: underline;
+    color: #b2b2b2;
+    font-size: 14px;
+    transition: all 0.6s ease;
+    letter-spacing: 1px;
+}
+
+.f_link a:hover {
+    color: #25b4ed;
+}
+
+/*-- copyright --*/
+
+.footer-w3ls {
+    margin: 2vw 2vw;
+}
+
+.footer-w3ls h2 {
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.footer-w3ls h2 a {
+    color: #25b4ed;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+.footer-w3ls h2 a:hover {
+    color: #fff;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+
+/*-- //copyright --*/
+
+/* responsive */
+
+@media(max-width: 1024px) {
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media(max-width: 900px) {
+    h1 {
+        font-size: 2.8em;
+    }
+}
+
+@media(max-width: 667px) {
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media(max-width: 640px) {
+    .formBox .f_row label {
+        font-size: 18px;
+    }
+    .formBox h3 {
+        font-size: 28px;
+    }
+    .container-agille {
+        margin: 3.5em 0 2em;
+    }
+}
+
+@media(max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
+    .formBox .regTag {
+        right: -46px;
+    }
+}
+
+@media(max-width: 568px) {
+    .formBox .regTag {
+        font-size: 20px;
+        width: 100px;
+        height: 100px;
+        right: -28px;
+    }
+    .footer-w3ls h2 {
+        letter-spacing: 1px;
+    }
+}
+
+@media(max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+        margin: 6vw 1vw;
+    }
+    .formBox {
+        width: 390px;
+    }
+    .formBox .f_row input {
+        font-size: 20px;
+    }
+    .formBox .f_row {
+        margin-bottom: 20px;
+    }
+    .container-agille {
+        margin: 3.5em 0 1em;
+    }
+    .btn-large {
+        height: 50px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 440px) {
+    .formBox {
+        width: 370px;
+    }
+    .formBox .regTag {
+        font-size: 18px;
+        width: 80px;
+        height: 80px;
+        right: -20px;
+    }
+}
+
+@media(max-width: 414px) {
+    .formBox {
+        width: 350px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+}
+
+@media(max-width: 384px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .container-agille {
+        margin: 2em 0 .5em;
+    }
+    .formBox .regTag {
+        right: 17px;
+    }
+}
+
+@media(max-width: 320px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .formBox {
+        width: 281px;
+    }
+    .formBox h3 {
+        font-size: 24px;
+        padding: 0px 22px;
+    }
+    .formBox form {
+        padding: 0px 30px
+    }
+    .f_link a {
+        font-size: 13px;
+    }
+    .formBox .regTag {
+        right: 4px;
+    }
+    .footer-w3ls h2 {
+        font-size: 14px;
+    }
+    .container-agille {
+        margin: 3em 0 .5em;
+    }
+}

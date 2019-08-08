@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>INSPINIA | Register</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
+    <link th:href="@{/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style2.css}" type="text/css" media="all" />
+
+    <!-- Sweet Alert -->
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+<!--    <div class="middle-box text-center loginscreen   animated fadeInDown">-->
+    <div class="container-agille">
+        <div class="formBox level-login">
+            <div class="box loginBox">
+                <span class="reg_bg"></span>
+                <h3>欢迎注册</h3>
+                <form class="form" role="form" th:action="@{register}" method="post">
+                    <div class="f_row-2">
+                        <input type="text" class="input-field" placeholder="输入账号" name="userName" required>
+                    </div>
+                    <div class="f_row-2 last">
+                        <input type="password" name="password" placeholder="输入密码" id="password1" class="input-field" required>
+                    </div>
+                    <div class="f_row-2 last">
+                        <input type="password" name="password2" placeholder="再次输入密码" id="password2" class="input-field" required>
+                    </div>
+                    <div class="f_row-2 last">
+                        <input type="email" class="input-field" placeholder="输入邮箱地址" name="email" required=""/>
+                    </div>
+                    <input class="submit-w3" type="submit" value="注册">
+                    <p class="text-muted text-center f_link2"><small>已经注册 ?</small></p>
+                    <a class="btn btn-sm btn-white btn-block" th:href="@{login}" href="login.html">登  录</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script th:src="@{/js/jquery-2.1.1.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- Mainly scripts -->
+    <!--<script src="js/jquery-2.1.1.js"></script>-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!-- iCheck -->
+    <script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
+    <!-- Sweet alert -->
+    <script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+    <!--<script>-->
+
+        <!--$(document).ready(function(){-->
+            <!--$('.i-checks').iCheck({-->
+                <!--checkboxClass: 'icheckbox_square-green',-->
+                <!--radioClass: 'iradio_square-green',-->
+            <!--});-->
+        <!--});-->
+
+    <!--</script>-->
+
+    <script th:inline="javascript">
+        window.onload = function () {
+            document.getElementById("password1").onchange = validatePassword;
+            document.getElementById("password2").onchange = validatePassword;
+        };
+
+        function validatePassword() {
+            var pass2 = document.getElementById("password2").value;
+            var pass1 = document.getElementById("password1").value;
+            if (pass1 !== pass2)
+                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+            else
+                document.getElementById("password2").setCustomValidity('');
+            //empty string means no validation error
+        }
+
+        var error = [[${error}]];
+        $(document).ready(function () {
+            if(error != null){
+                swal({
+                    title : "温馨提示",
+                    text : error
+                });
+            }
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Validate Login & Register Forms Flat Responsive Widget Template :: w3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8"/>
+    <meta name="keywords"
+          content="Validate Login & Register Forms Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements"/>
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- Meta tag Keywords -->
+
+    <!-- css files -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style2.css}" type="text/css" media="all"/>
+    <!-- Style-CSS -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- Font-Awesome-Icons-CSS -->
+
+    <!-- Sweet Alert -->
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet"/>
+    <!-- //css files -->
+</head>
+
+<body>
+<!-- title -->
+<h1 class="h1-css">
+    欢迎进入商品后台管理系统
+</h1>
+<!-- //title -->
+
+<!-- content -->
+<div class="container-agille">
+    <div class="formBox level-login">
+        <div class="box boxShaddow"></div>
+        <div class="box loginBox">
+            <h3>Login Here</h3>
+            <form id="form1" class="m-t" role="form" action="login" method="post">
+                <div class="f_row-2">
+                    <input id="userName" type="text" class="input-field" placeholder="输入账号" name="userName" required/>
+                </div>
+                <div class="f_row-2 last">
+                    <input id="password" type="password" name="password" placeholder="输入密码" class="input-field"
+                           required/>
+                </div>
+                <div class="last">
+                    <input id="verificationCode" type="text" class="input-field" placeholder="请输入图形验证码" required/>
+                    <div class="form-group row">
+                        <div class="col-md-3">
+                            <img id="verificationCodeImg" th:width="120px" height="80px"
+                                 th:src="@{/kaptcha/getKaptchaImage}">
+                        </div>
+                        <div class="col-md-10">
+                            <a href="#" id="changeImg" onclick="changeImg()">看不清，换一张</a>
+                        </div>
+                    </div>
+                </div>
+                <button id="loginButton" type="button" class="submit-w3 btn btn-primary full-width m-b block">登 录
+                </button>
+                <div class="f_link">
+                    <a href="" class="resetTag">忘记密码?</a>
+                </div>
+                <div class="f_link2">
+                    <p class="text-muted text-center">
+                        <small>没有账号 ?</small>
+                    </p>
+                    <a class="btn btn-sm btn-white btn-block" th:href="@{register}" href="register.html">注 册</a>
+                </div>
+            </form>
+        </div>
+        <div class="box forgetbox agile">
+            <a href="#" class="back icon-back">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                     viewBox="0 0 199.404 199.404" style="enable-background:new 0 0 199.404 199.404;"
+                     xml:space="preserve">
+						<polygon points="199.404,81.529 74.742,81.529 127.987,28.285 99.701,0 0,99.702 99.701,199.404 127.987,171.119 74.742,117.876 
+			  199.404,117.876 "/>
+					</svg>
+            </a>
+            <h3>重置密码</h3>
+<!--            <form id="sendForm" class="m-t" role="form" th:action="@{/user/forget}" method="post">-->
+            <form action="">
+                <div class="f_row last">
+                    <label>您的账号</label>
+                    <input id="name" type="text" class="input-field" placeholder="输入账号" />
+                </div>
+                <br>
+                <div class="f_row last">
+                    <label>您的邮箱地址</label>
+                    <input id="email" type="email" placeholder="请输入您的邮箱地址" class="input-field" />
+                    <u></u>
+                </div>
+                <br>
+                <div class="f_row last">
+                    <button id="sendBtn" class="btn button submit-w3" type="button" onclick="sendEmailCode(this)">
+                        <span>发送验证码</span>
+                    </button>
+                </div>
+            </form>
+            <form  action="">
+                <div class="f_row last">
+                    <br>
+                    <label>邮箱验证码</label>
+                    <input id="userCode" type="text" name="email2" placeholder="邮箱验证码" class="input-field" required>
+                    <u></u>
+                </div>
+                <br>
+                <br>
+                <button type="button" class="btn button submit-w3" onclick="checkEmail()">
+                    <span>重置</span>
+                </button>
+            </form>
+        </div>
+        <a href="#" class="regTag icon-add">
+            <i class="fa fa-repeat" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+<!-- //content -->
+
+<!-- js files -->
+<!-- Jquery -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- //Jquery -->
+<!-- input fields js -->
+<script th:src="@{/js/input-field.js}"></script>
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+<!-- //input fields js -->
+<script th:inline="javascript">
+    var error = [[${error}]];
+    $(document).ready(function () {
+        if (error != null) {
+            swal({
+                title: "温馨提示",
+                text: error
+            });
+        }
+    });
+
+    // 提交登陆表单
+        $('#loginButton').click(function () {
+            var verificationCode = $("#verificationCode").val();
+            if (verificationCode === "") {
+                var error = "验证码不能为空";
+                swal("OMG!", error, "error");
+            } else {
+                var verificationCodeText;
+                $.get("/kaptcha/getKaptchaText", function (data) {
+                    verificationCodeText = data;
+                    if (verificationCodeText !== verificationCode) {
+                        swal("OMG!", "验证码输入不正确，请重新输入！", "error");
+                    } else {
+                        $('#form1')[0].submit();
+                    }
+                })
+            }
+
+    });
+
+
+    /**
+     *  重置验证码
+     */
+    function changeImg() {
+        $('#verificationCodeImg')[0].src = '/kaptcha/getKaptchaImage'
+    }
+
+
+    var code;
+    /**
+     *  处理发送邮箱验证码逻辑代码
+     **/
+    function sendEmailCode(btn) {
+        var name = $('#name')[0].value;
+        var email = $('#email')[0].value;
+        if (name === "")
+            swal("OMG!", "请输入您的账号！", "error");
+        else if(email === "")
+            swal("OMG!", "请输入您的邮箱地址！", "error");
+        else if (name === "" && email === "")
+            swal("OMG!", "请输入您的账号和邮箱地址！", "error");
+        else {
+            // time(btn);
+            swal("温馨提示!", "验证码已成功发送到邮箱！", "success");
+            var json = {
+                "userName": name,
+                "email": email
+            };
+            $.ajax({
+                url: "/user/forget",
+                type: "POST",
+                dataType: "JSON",
+                data: JSON.stringify(json),
+                async: true,
+                processData: true,
+                contentType: "application/json;charset=UTF-8",
+                success: function (returnData) {
+                },
+                error: function (data) {
+                    code = data.responseText;
+                }
+            });
+        }
+    }
+
+    var wait = 60;
+    /**
+     *  按钮点击60秒后重新启用（重新发送验证码）
+     **/
+    function time(btn) {
+        if (wait == 0) {
+            btn.removeAttribute("disabled");
+            btn.value = "免费获取验证码";
+            wait = 60;
+        } else {
+            btn.setAttribute("disabled", true);
+            btn.value = wait + "秒后重新获取验证码";
+            wait--;
+            setTimeout(function () {
+                    time(btn);
+                },
+                1000)
+        }
+    }
+    
+
+    /**
+     *   验证用户收到的验证码是否与后台生成的相同否，
+     *   if true： dis
+     */
+    function checkEmail() {
+        var insertCode = $('#userCode')[0].value;
+        if (insertCode !== "") {
+            if (insertCode === code) {
+                swal("OMG!", "邮箱正确！", "success");
+                var link = "/user/forget?" + "userName=" + $('#name')[0].value + "&email=" + $('#email')[0].value;
+                window.location.href = link;
+            } else {
+                swal("OMG!", "邮箱验证码不正确，请重新输入！", "error");
+            }
+        } else {
+            swal("OMG!", "邮箱验证码为空！", "error");
+        }
+    }
+
+</script>
+<!-- //js files -->
+</body>
+
+</html>

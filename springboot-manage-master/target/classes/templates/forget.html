@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>INSPINIA | Forget</title>
+
+    <!-- css files -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/style2.css}" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+
+    <script th:src="@{/js/jquery-2.1.1.js}"></script>
+
+    <link th:href="@{/css/plugins/sweetalert/sweetalert.css}" rel="stylesheet"/>
+    <script th:inline="javascript">
+
+    </script>
+
+</head>
+
+<body >
+<h1 class="h1-css">
+    后台信息管理系统 密码找回
+</h1>
+    <div class="container-agille">
+        <div class="formBox level-login level-forget">
+            <div class="box boxShaddow"></div>
+            <div class="box loginBox">
+                <h3>账号：</h3>
+            </div>
+            <div class="box forgetbox agile">
+                <h3>重置密码</h3>
+                <!--            <form id="sendForm" class="m-t" role="form" th:action="@{/user/forget}" method="post">-->
+                <form class="m-t" role="form" method="post" action="/user/modifyPasswd">
+                    <div class="f_row last">
+                        <input type="password" name="password" placeholder="输入新密码" id="password1" class="input-field" required>
+                    </div>
+                    <div class="f_row last">
+                        <input type="password" name="password2" placeholder="再次输入密码" id="password2" class="input-field" required>
+                    </div>
+                    <button type="button" class="submit-w3 btn btn-primary full-width m-b block" onclick="resetPasswd()">重置密码</button>
+                    <a class="submit-w3 btn btn-primary full-width m-b block" th:href="@{login}">返回登录</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- Mainly scripts -->
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- Sweet alert -->
+<script th:src="@{/js/plugins/sweetalert/sweetalert.min.js}"></script>
+
+
+<script th:inline="javascript">
+    var error = [[${error}]];
+    $(document).ready(function () {
+        if (error != null) {
+            swal({
+                title: "温馨提示",
+                text: error
+            });
+        }
+    });
+
+
+    /**
+     *  重置密码
+     */
+    function resetPasswd() {
+        var passwd1 = $('#password1')[0].value;
+        var passwd2 = $('#password2')[0].value;
+        if (passwd1 !== "" && passwd2 !== "" && passwd1 === passwd2) {
+            swal("OMG!", "密码修改成功！！", "success");
+            var userName = GetUrlParam("userName");
+            var email = GetUrlParam("email");
+            var userInfo = {
+                "userName": userName,
+                "email": email,
+                "password": passwd1
+            };
+            $.ajax({
+                url: "/user/modifyPasswd",
+                type: "POST",
+                dataType: "JSON",
+                data: JSON.stringify(userInfo),
+                async: false,
+                processData: true,
+                contentType: "application/json;charset=UTF-8",
+                success: function (returnData) {
+                    var str = JSON.stringify(returnData);
+                    alert(str)
+                },
+                error: function (data) {
+                    code = data.responseText;
+                }
+            });
+
+        }else if (passwd1 === "" || passwd2 === "") {
+            swal("OMG!", "密码不能为空！！", "error");
+        }else if (passwd1 !== "" && passwd2 !== "" && passwd1 !== passwd2) {
+            swal("OMG!", "密码不相同，请重新输入！！", "error");
+        } else {
+            swal("OMG!", "密码错误，请重新输入！！", "error");
+        }
+    }
+
+    /**
+     * 获取指定的URL参数值
+     * URL:http://www.quwan.com/index?name=tyler
+     * 参数：paramName URL参数
+     * 调用方法:getParam("name")
+     * 返回值:tyler
+     */
+    function GetUrlParam(paraName) {
+        var url = document.location.toString();
+        var arrObj = url.split("?");
+
+        if (arrObj.length > 1) {
+            var arrPara = arrObj[1].split("&");
+            var arr;
+
+            for (var i = 0; i < arrPara.length; i++) {
+                arr = arrPara[i].split("=");
+
+                if (arr != null && arr[0] == paraName) {
+                    return arr[1];
+                }
+            }
+            return "";
+        }
+        else {
+            return "";
+        }
+    }
+
+</script>
+</body>
+
+</html>
